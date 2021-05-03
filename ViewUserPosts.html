@@ -1,0 +1,22 @@
+<html>
+<head>
+<body>
+  <form name = "sqlview user" action =  "ViewUserPost.php" method = "post">
+  Select User From List
+  <select name = "dropMenu">
+    <?php
+   	 $connection = mysqli_connect("mysql.eecs.ku.edu", "robertnewman", "iey3Phei", "robertnewman");
+         $userDrop = mysqli_query($connection, "SELECT user_id FROM User"); 
+   	 while($users = mysqli_fetch_array($userDrop))
+    	 {
+      	    $id = $users[user_id];
+     	    echo ("<option value = '$user_id'>$id</option>");
+   	 } 
+    ?>
+  </select>
+  <br><input type = "submit" value= 'Submit'>
+  </input>
+</form>
+</head>  
+</body>
+</html>
